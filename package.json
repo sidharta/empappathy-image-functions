@@ -1,0 +1,9 @@
+{
+  "name": "empappathy-image-functions",
+  "description": "A set of google cloud functions to analyse images from Firebase with Google Vision.",
+  "version": "0.0.1",
+  "dependencies": {
+    "firebase-admin": "^4.1.2",
+    "google-cloud": "^0.48.0"
+  }
+}
