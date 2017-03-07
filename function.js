@@ -23,9 +23,10 @@ function visiondetect(event, callback) {
   const data = event.data
   const isDelete = data.resourceState === 'not_exists';
   const isImage = data.contentType.lastIndexOf('image', 0) === 0
+  const postKey = data.metadata.postKey
 
   // if (data !== undefined && !isDelete) {
-  if (data !== undefined && !isDelete && isImage) {
+  if (data !== undefined && !isDelete && isImage && postKey) {
     // Create Firebase Storage public URL
     var urlString = "https://firebasestorage.googleapis.com/v0/b/" +
       data.bucket + "/o/" +
@@ -63,6 +64,7 @@ function visiondetect(event, callback) {
           ref.push({
             "url": urlString,
             "name": data.name,
+            "postKey": postKey,
             "labels": detections.labels,
             "facesTypes": types
           })
